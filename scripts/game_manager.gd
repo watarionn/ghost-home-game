@@ -55,7 +55,7 @@ func advance(delta: float) -> void:
 func perform_action(id: String) -> void:
 	if paused or not result.is_empty():
 		return
-	var effect: Dictionary = actions.execute(id, resident.state)
+	var effect: Dictionary = actions.execute(id, resident)
 	if effect.is_empty():
 		return
 	fear = clampi(fear + effect.gain, 0, Balance.WIN_FEAR)
@@ -66,8 +66,8 @@ func perform_action(id: String) -> void:
 		feedback = "恐怖 +%d！" % effect.gain
 		if effect.adaptation_before > 0:
 			feedback += " 慣れてきた…"
-		feedback += "\n%s ×%.1f / 慣れ ×%.2f" % [
-			resident.LABELS[effect.state], effect.state_multiplier, effect.adaptation_multiplier]
+		var timing_text := "GOOD TIMING" if effect.opportunity else "タイミングが悪い"
+		feedback += "\n%s ×%.2f" % [timing_text, effect.timing_multiplier]
 		resident.react()
 	feedback_remaining = Balance.FEEDBACK_TIME
 	if fear >= Balance.WIN_FEAR:
@@ -113,6 +113,8 @@ func finish(outcome: String) -> void:
 		lines.append("%s_FINAL_ADAPTATION=%d" % [id, actions.adaptation[id]])
 	lines.append("MAX_FEAR_GAIN=%d" % actions.max_gain)
 	lines.append("AVERAGE_FEAR_GAIN=%.3f" % actions.average_gain())
+	lines.append("OPPORTUNITY_SUCCESS_COUNT=%d" % actions.opportunity_count)
+	lines.append("MISTIMED_ACTION_COUNT=%d" % actions.mistimed_count)
 	last_report = "\n".join(lines)
 	print(last_report)
 

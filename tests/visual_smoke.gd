@@ -3,6 +3,7 @@ extends SceneTree
 const Main = preload("res://scenes/main.tscn")
 var game: Node
 var failures := 0
+var screenshot_count := 0
 
 
 func _initialize() -> void:
@@ -12,7 +13,8 @@ func _initialize() -> void:
 func capture(filename: String) -> void:
 	await process_frame
 	await RenderingServer.frame_post_draw
-	var error := root.get_texture().get_image().save_png("res://test-output/" + filename + ".png")
+	var error := root.get_texture().get_image().save_png("res://test-output/v02_" + filename + ".png")
+	screenshot_count += 1
 	if error != OK:
 		failures += 1
 		push_error("Screenshot failed: " + filename)
@@ -48,6 +50,31 @@ func run() -> void:
 		game.resident.enter_state(state)
 		game.refresh()
 		await capture(state.to_lower())
+	for state in ["WATCH_TV", "SLEEP"]:
+		game.restart()
+		game.resident.enter_state(state)
+		game.advance(1.0)
+		await capture(state.to_lower() + "_settled")
+	# Mouse-triggered GOOD TIMING and mistimed feedback for each of the three actions.
+	for example in [["LIGHT", "WATCH_TV", 0.0, 220, 200, 22],
+		["SOUND", "SLEEP", 0.0, 950, 600, 36],
+		["SHADOW", "WALK", 0.0, 570, 1060, 47],
+		["LIGHT", "WATCH_TV", 3.0, 220, 200, 6],
+		["SOUND", "SLEEP", 4.0, 950, 600, 10],
+		["SHADOW", "WALK", 0.0, 700, 1060, 14]]:
+		game.restart()
+		game.resident.enter_state(example[1])
+		game.resident.remaining = game.resident.duration - example[2]
+		game.resident.position.x = example[3]
+		game.refresh()
+		await click_at(Vector2(example[4], 710))
+		verify(game.fear == example[5], "Mouse timing result " + example[0])
+		await capture(example[0].to_lower() + ("_good" if game.actions.last.opportunity else "_mistimed"))
+	game.restart()
+	game.resident.enter_state("WATCH_TV")
+	game.debug_visible = true
+	game.refresh()
+	await capture("opportunity_debug")
 	game.restart()
 	game.resident.enter_state("SLEEP")
 	game.refresh()
@@ -55,7 +82,7 @@ func run() -> void:
 	verify(game.actions.use_count.LIGHT == 1 and game.fear == 0, "Mouse LIGHT misses sleeping resident")
 	await capture("miss")
 	await click_at(Vector2(600, 710))
-	verify(game.actions.use_count.SOUND == 1 and game.fear == 20, "Mouse SOUND causes 20 fear")
+	verify(game.actions.use_count.SOUND == 1 and game.fear == 36, "Mouse SOUND causes 36 fear")
 	game.debug_visible = true
 	game.refresh()
 	verify(game.ui.debug_panel.position.x == 40.0, "Debug avoids resident and feedback on right")
@@ -81,5 +108,5 @@ func run() -> void:
 	await capture("restart")
 	game.queue_free()
 	await process_frame
-	print("VISUAL_SMOKE: 12 screenshots, viewport mouse tests, %d failures" % failures)
+	print("VISUAL_SMOKE: %d screenshots, viewport mouse tests, %d failures" % [screenshot_count, failures])
 	quit(0 if failures == 0 else 1)

@@ -1,5 +1,7 @@
 # Stage 1 v0.1 検証結果
 
+この文書は `cb0ac15` 時点の過去記録です。現在のv0.2実装の検証結果・再現手順は [STAGE_1_V02_VERIFICATION.md](STAGE_1_V02_VERIFICATION.md) を参照してください。
+
 ## 対象と環境
 
 - 対象: Issue #1 / `feature/stage1-core-prototype-v01`

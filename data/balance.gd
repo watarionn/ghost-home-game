@@ -6,11 +6,16 @@ const WIN_FEAR := 100
 const ADAPTATION_MAX := 80
 const ADAPTATION_MIN_MULTIPLIER := 0.2
 const FEEDBACK_TIME := 1.8
+const GOOD_TIMING_MULTIPLIER := 1.75
+const MISTIMED_MULTIPLIER := 0.50
+const LIGHT_WINDOW_SECONDS := 3.0
+const SOUND_WINDOW_SECONDS := 4.0
+const SHADOW_ZONE_X := Vector2(500, 640)
 const STATE_DURATIONS := {
-	"WALK": Vector2(4, 7),
-	"WATCH_TV": Vector2(12, 20),
-	"DRINK_WATER": Vector2(5, 8),
-	"SLEEP": Vector2(20, 30),
+	"WALK": Vector2(3, 5),
+	"WATCH_TV": Vector2(9, 14),
+	"DRINK_WATER": Vector2(4, 6),
+	"SLEEP": Vector2(12, 18),
 	"SURPRISED": Vector2(1.5, 1.5),
 	"ALERT": Vector2(3, 3),
 }

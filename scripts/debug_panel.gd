@@ -13,7 +13,7 @@ func _ready() -> void:
 	style.content_margin_top = 12
 	style.content_margin_bottom = 12
 	add_theme_stylebox_override("panel", style)
-	label.add_theme_font_size_override("font_size", 17)
+	label.add_theme_font_size_override("font_size", 15)
 	add_child(label)
 
 
@@ -26,6 +26,10 @@ func update_view(game: Node) -> void:
 		"DEBUG  /  F1", "CurrentState: %s" % game.resident.state,
 		"StateRemainingTime: %.2f" % game.resident.remaining,
 		"Fear: %d" % game.fear,
+		"EffectiveState: %s" % game.resident.effective_state(),
+		"StateElapsedTime: %.2f" % game.resident.state_elapsed_time(),
+		"CurrentOpportunityAction: %s" % game.resident.current_opportunity_action(),
+		"IsOpportunityWindow: %s" % str(game.resident.current_opportunity_action() != "NONE"),
 	]
 	for id in game.Balance.ACTION_IDS:
 		lines.append("%sAdaptation: %d" % [id.capitalize(), game.actions.adaptation[id]])
@@ -36,4 +40,5 @@ func update_view(game: Node) -> void:
 	lines.append("LastStateMultiplier: %s" % str(last.get("state_multiplier", "—")))
 	lines.append("LastAdaptationMultiplier: %s" % str(last.get("adaptation_multiplier", "—")))
 	lines.append("LastFearGain: %s" % str(last.get("gain", "—")))
+	lines.append("LastTimingMultiplier: %s" % str(last.get("timing_multiplier", "—")))
 	label.text = "\n".join(lines)

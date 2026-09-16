@@ -48,9 +48,9 @@ func run() -> void:
 		check(game.actions.adaptation[id] == 0 and game.actions.cooldown[id] == 0.0, "initial " + id)
 	# Independent expected rounded outcomes for every normal state/action pair.
 	var expected := {
-		"WATCH_TV": [13, 8, 18], "WALK": [10, 12, 27],
-		"DRINK_WATER": [8, 14, 23], "SLEEP": [0, 20, 0],
-		"SURPRISED": [8, 12, 18], "ALERT": [8, 12, 18],
+		"WATCH_TV": [22, 4, 9], "WALK": [5, 6, 14],
+		"DRINK_WATER": [4, 7, 12], "SLEEP": [0, 36, 0],
+		"SURPRISED": [5, 6, 14], "ALERT": [5, 6, 14],
 	}
 	var ids := ["LIGHT", "SOUND", "SHADOW"]
 	var cooldowns := [8.0, 10.0, 15.0]
@@ -73,34 +73,37 @@ func run() -> void:
 	# Diminishing returns uses pre-action adaptation, not the just-increased value.
 	fresh("SLEEP")
 	game.perform_action("SOUND")
-	check(game.actions.last.gain == 20, "first SOUND at SLEEP = 20")
+	check(game.actions.last.gain == 36, "first GOOD TIMING SOUND at SLEEP = 36")
 	game.actions.advance(10.0)
 	game.resident.enter_state("SLEEP")
 	game.perform_action("SOUND")
-	check(game.actions.last.gain == 16 and game.actions.adaptation.SOUND == 44, "second SOUND at SLEEP = 16")
+	check(game.actions.last.gain == 28 and game.actions.adaptation.SOUND == 44, "second GOOD TIMING SOUND at SLEEP = 28")
 	check(game.feedback.contains("慣れてきた"), "adaptation feedback explains diminished effect")
 	for id in ids:
 		game.actions.reset()
+		game.resident.enter_state("WALK")
 		for i in 10:
 			game.actions.advance(15.0)
-			game.actions.execute(id, "WALK")
+			game.actions.execute(id, game.resident)
 		check(game.actions.adaptation[id] == 80, "adaptation clamps at 80: " + id)
 		check(is_equal_approx(game.actions.last.adaptation_multiplier, 0.2), "minimum multiplier 0.2")
 		game.actions.advance(100.0)
 		check(game.actions.adaptation[id] == 80, "adaptation never decays")
 	game.actions.reset()
-	game.actions.execute("LIGHT", "WALK")
+	game.resident.enter_state("WALK")
+	game.actions.execute("LIGHT", game.resident)
 	check(game.actions.cooldown.SOUND == 0.0 and game.actions.adaptation.SHADOW == 0, "action independence")
-	game.actions.execute("SOUND", "SLEEP")
-	game.actions.execute("SHADOW", "SLEEP")
-	check(game.actions.total_gain == 30 and game.actions.max_gain == 20, "logging max/total include correct gains")
-	check(is_equal_approx(game.actions.average_gain(), 10.0), "average includes misses")
+	game.resident.enter_state("SLEEP")
+	game.actions.execute("SOUND", game.resident)
+	game.actions.execute("SHADOW", game.resident)
+	check(game.actions.total_gain == 41 and game.actions.max_gain == 36, "logging max/total include correct gains")
+	check(is_equal_approx(game.actions.average_gain(), 41.0 / 3.0), "average includes misses")
 	# AI durations, autonomous transitions, motion, and reaction restoration.
 	fresh()
 	var start: Vector2 = game.resident.position
 	game.advance(0.5)
 	check(game.resident.position != start, "WALK moves resident")
-	var ranges := {"WALK": Vector2(4, 7), "WATCH_TV": Vector2(12, 20), "DRINK_WATER": Vector2(5, 8), "SLEEP": Vector2(20, 30)}
+	var ranges := {"WALK": Vector2(3, 5), "WATCH_TV": Vector2(9, 14), "DRINK_WATER": Vector2(4, 6), "SLEEP": Vector2(12, 18)}
 	for state in ranges:
 		for i in 20:
 			game.resident.enter_state(state)
@@ -151,14 +154,14 @@ func run() -> void:
 	press_key(KEY_2)
 	await process_frame
 	release_key(KEY_2)
-	check(game.fear == 20 and game.actions.use_count.SOUND == 1, "keyboard 2 executes SOUND")
+	check(game.fear == 36 and game.actions.use_count.SOUND == 1, "keyboard 2 executes SOUND")
 	press_key(KEY_3, true)
 	await process_frame
 	check(game.actions.use_count.SHADOW == 0, "keyboard repeat ignored")
 	press_key(KEY_F1)
 	await process_frame
 	release_key(KEY_F1)
-	check(game.ui.debug_panel.visible and game.ui.debug_panel.label.text.contains("LastFearGain: 20"), "F1 debug fields visible")
+	check(game.ui.debug_panel.visible and game.ui.debug_panel.label.text.contains("LastFearGain: 36"), "F1 debug fields visible")
 	press_key(KEY_F1)
 	await process_frame
 	release_key(KEY_F1)
@@ -166,7 +169,7 @@ func run() -> void:
 	# Mouse and keyboard share the same execution path (button signal binding).
 	fresh("WALK")
 	game.ui.action_buttons.SHADOW.pressed.emit()
-	check(game.fear == 27 and game.actions.use_count.SHADOW == 1, "button executes SHADOW")
+	check(game.fear == 14 and game.actions.use_count.SHADOW == 1, "button executes mistimed SHADOW")
 	for entry in [[0, "平常"], [24, "平常"], [25, "少し不安"], [49, "少し不安"], [50, "警戒"], [74, "警戒"], [75, "かなり怯えている"], [99, "かなり怯えている"], [100, "限界"]]:
 		game.fear = entry[0]
 		check(game.fear_stage() == entry[1], "fear stage boundary")

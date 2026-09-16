@@ -44,6 +44,8 @@ Stage 1では、まず以下のCore Funだけを検証します。
 
 - `docs/STAGE_0_PROJECT_DEFINITION.md` - ゲーム全体の核
 - `docs/STAGE_1_CORE_PROTOTYPE_SPEC.md` - Core Prototype v0.1仕様
+- `docs/STAGE_1_CORE_PROTOTYPE_V02_SPEC.md` - 現在の実験ビルドv0.2の正本
+- `docs/STAGE_1_V02_VERIFICATION.md` - v0.2の検証結果とPlaytest 002確認事項
 - `docs/CODEX_STAGE_1_IMPLEMENTATION.md` - Codex向け実装指示
 - `docs/PLAYTEST_LOG.md` - テストプレイ記録
 
@@ -66,7 +68,7 @@ GitHub Actionsなど、従量課金が発生する可能性のある処理は使
 
 このプロジェクトでは、コード量や見た目より先に **Core Funが成立しているか** を検証します。
 
-## Stage 1 Prototype の起動
+## Stage 1 Prototype v0.2 の起動
 
 1. **Godot 4.7.2 stable（通常版 / GDScript）** で、このリポジトリ直下の `project.godot` をインポートします。
 2. **F6ではなくF5（プロジェクト実行）** で `scenes/main.tscn` を起動します。
@@ -74,7 +76,7 @@ GitHub Actionsなど、従量課金が発生する可能性のある処理は使
 
 Windows向けの1280×800の2D仮画面です。外部アセット・Plugin・追加パッケージは不要です。
 日本語表示にはWindowsのシステムフォント（Yu Gothic UI / Meiryo）を利用します。
-終了時の14項目の計測ログはGodotエディターの「出力」パネルで確認できます。
+終了時の計測ログ（既存14項目＋Opportunity成功数・Mistimed発動数）はGodotエディターの「出力」パネルで確認できます。
 
 | 操作 | 内容 |
 | --- | --- |
@@ -91,10 +93,14 @@ Pause中は部屋・数値詳細を覆い、怪奇現象の予約入力は受け
 ### 実装上の補足
 
 - 認識された怪奇現象で `SURPRISED`（1.5秒）→ `ALERT`（3秒）→中断した生活状態・残り時間へ戻ります。Missでは反応状態へ移りません。
-- `SURPRISED` / `ALERT` の「数値補正を持たない」は中立倍率 `1.0` として実装しています。反応中に別の現象を受けても、復帰先は最初に中断した生活です。
+- LIGHTはテレビを見始めて最初の3秒、SOUNDは寝入りばなの最初の4秒、SHADOWはWALK中に中央の通路（部屋内X=500〜640）を通る間がOpportunityです。
+- Opportunity成功はTiming倍率1.75、認識されたタイミング外は0.50。どちらもAdaptationは通常どおり増え、Missでは増えません。
+- 反応中は直前の生活StateをEffectiveStateとして判定し、Opportunityは無効です。睡眠へのSOUND直後にSHADOWを使ってもMissになります。
+- 通常Stateの経過時間は反応中に停止し、復帰後に続きます。Opportunityの時計を0に戻すことはありません。時間窓は `[0, 3)` / `[0, 4)`、通路のX境界は両端を含みます。
+- テレビ開始時のリモコン、寝入りのあくび、中央通路を手がかりに観察できます。正解の事前表示はDebugのみです。
 - WALK中は散歩スペースを移動し、WALK終了時の抽選後は活動位置へ即時移動します。経路探索はありません。
 - `MAX_FEAR_GAIN` / `AVERAGE_FEAR_GAIN` は丸めた計算上のFearGainを集計します。平均の分母にはMissを含む発動回数を使い、Cooldown等で拒否された入力は含めません。
-- 数値上の機能検証と、面白さの判定は別です。現在の自動操作では単純なCooldown順操作でも勝てるため、**Core Fun Gateは未達**です。詳細は `docs/STAGE_1_VERIFICATION.md` を参照してください。
+- **Checkpoint 1は未通過**です。自動比較ではOpportunityを狙う方針のほうが速くなりましたが、機械的Cooldown順操作も20/20勝利しました。人間のPlaytest 002で判断します。詳細は `docs/STAGE_1_V02_VERIFICATION.md` を参照してください。v0.1の過去結果は `docs/STAGE_1_VERIFICATION.md` に残しています。
 
 ### ローカル検証（CI不要）
 
@@ -103,14 +109,16 @@ Pause中は部屋・数値詳細を覆い、怪奇現象の予約入力は受け
 ```powershell
 godot --headless --path . --editor --import --quit
 godot --headless --path . --script tests/acceptance.gd
+godot --headless --path . --script tests/acceptance_v02.gd
 godot --path . --script tests/visual_smoke.gd
 godot --headless --path . --script tests/realtime_timeout.gd
 godot --headless --path . --script tests/policy_probe.gd
 ```
 
 - `acceptance.gd`: 状態別計算、Miss、慣れ、AI、Pause、入力、終了、連続プレイを検証。
-- `visual_smoke.gd`: OpenGLで実描画し、マウス操作を検証。12枚の画面を `test-output/` に保存。
+- `acceptance_v02.gd`: 時間・位置境界、GOOD TIMING / Mistimed、EffectiveState、反応連打、Opportunityの停止・復帰を検証。
+- `visual_smoke.gd`: OpenGLで実描画し、マウス操作を検証。21枚の画面を `test-output/v02_*.png` に保存。
 - `realtime_timeout.gd`: 約180秒待って、実際の `_process` による時間切れを検証。
-- `policy_probe.gd`: seed 0〜19で3種類の操作方針を比較。結果を `test-output/policy_probe.json` に保存。
+- `policy_probe.gd`: seed 0〜19で `cooldown_order` / `opportunity_aware` / `light_only` を比較。集計・各試行・整合性確認を `test-output/policy_probe_v02.json` に保存。Core Fun合否は自動判定しません。
 
 生成キャッシュ・検証画像はGit管理対象外です。GitHub ActionsやCI/CDは使用しません。

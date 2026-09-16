@@ -23,6 +23,40 @@ var suspended_duration := 0.0
 var fear := 0
 
 
+func is_reacting() -> bool:
+	return state in ["SURPRISED", "ALERT"]
+
+
+func effective_state() -> String:
+	return suspended_state if is_reacting() else state
+
+
+func state_elapsed_time() -> float:
+	return duration - remaining
+
+
+func normal_elapsed_time() -> float:
+	return suspended_duration - suspended_remaining if is_reacting() else state_elapsed_time()
+
+
+func current_opportunity_action() -> String:
+	# Reactions preserve normal context but can never grant GOOD TIMING.
+	if is_reacting():
+		return "NONE"
+	match state:
+		"WATCH_TV":
+			if state_elapsed_time() < Balance.LIGHT_WINDOW_SECONDS:
+				return "LIGHT"
+		"SLEEP":
+			if state_elapsed_time() < Balance.SOUND_WINDOW_SECONDS:
+				return "SOUND"
+		"WALK":
+			# Room-local X, inclusive endpoints. Y intentionally does not participate.
+			if position.x >= Balance.SHADOW_ZONE_X.x and position.x <= Balance.SHADOW_ZONE_X.y:
+				return "SHADOW"
+	return "NONE"
+
+
 func reset() -> void:
 	position = Vector2(430, 330)
 	fear = 0
@@ -57,7 +91,7 @@ func choose_activity() -> String:
 
 func react() -> void:
 	# Preserve the interrupted activity only on the first reaction.
-	if state not in ["SURPRISED", "ALERT"]:
+	if not is_reacting():
 		suspended_state = state
 		suspended_remaining = remaining
 		suspended_duration = duration
@@ -99,14 +133,15 @@ func _draw() -> void:
 	else:
 		draw_circle(Vector2(-9, -11), 3, Color("17212c"))
 		draw_circle(Vector2(9, -11), 3, Color("17212c"))
-	if state == "SURPRISED" or fear >= 75:
+	if state == "SURPRISED" or fear >= 75 or (state == "SLEEP" and state_elapsed_time() < 0.8):
 		draw_circle(Vector2(0, 3), 6, Color("17212c"))
 	else:
 		draw_line(Vector2(-5, 4), Vector2(5, 4), Color("17212c"), 2)
 	if state == "DRINK_WATER":
 		draw_rect(Rect2(20, -6, 16, 22), Color("7fcbf2"))
 	if state == "WATCH_TV":
-		draw_rect(Rect2(22, 8, 10, 18), Color("273444"))
+		var remote_y := -16.0 if state_elapsed_time() < 0.8 else 8.0
+		draw_rect(Rect2(22, remote_y, 10, 18), Color("273444"))
 	if state == "ALERT":
 		draw_arc(Vector2.ZERO, 43, -2.8, -0.3, 24, Color("f0c16c"), 3)
 	if state == "WALK":

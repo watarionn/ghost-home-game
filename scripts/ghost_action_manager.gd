@@ -8,6 +8,8 @@ var miss_count: Dictionary = {}
 var last: Dictionary = {}
 var total_gain := 0
 var max_gain := 0
+var opportunity_count := 0
+var mistimed_count := 0
 
 
 func reset() -> void:
@@ -19,6 +21,8 @@ func reset() -> void:
 	last = {}
 	total_gain = 0
 	max_gain = 0
+	opportunity_count = 0
+	mistimed_count = 0
 
 
 func advance(delta: float) -> void:
@@ -26,28 +30,37 @@ func advance(delta: float) -> void:
 		cooldown[id] = maxf(0.0, cooldown[id] - delta)
 
 
-func execute(id: String, state: String) -> Dictionary:
+func execute(id: String, resident: Node) -> Dictionary:
 	if not Balance.ACTIONS.has(id) or cooldown[id] > 0.0:
 		return {}
 	var data: Dictionary = Balance.ACTIONS[id]
-	# SURPRISED / ALERT have no numerical modifier in v0.1: neutral 1.0.
-	var state_multiplier: float = data.multipliers.get(state, 1.0)
+	var state: String = resident.effective_state()
+	var state_multiplier: float = data.multipliers[state]
+	var missed := is_zero_approx(state_multiplier)
+	var opportunity: bool = not missed and resident.current_opportunity_action() == id
+	# 0.0 is the debug sentinel for a Miss: no timing multiplier is applied.
+	var timing_multiplier := 0.0 if missed else (
+		Balance.GOOD_TIMING_MULTIPLIER if opportunity else Balance.MISTIMED_MULTIPLIER)
 	var adaptation_before: int = adaptation[id]
 	var adaptation_multiplier := maxf(
 		Balance.ADAPTATION_MIN_MULTIPLIER, 1.0 - adaptation_before / 100.0)
-	var gain := roundi(data.base_fear * state_multiplier * adaptation_multiplier)
-	var missed := is_zero_approx(state_multiplier)
+	var gain := 0 if missed else roundi(data.base_fear * state_multiplier * timing_multiplier * adaptation_multiplier)
 	cooldown[id] = data.cooldown
 	use_count[id] += 1
 	if missed:
 		miss_count[id] += 1
 	else:
 		adaptation[id] = mini(Balance.ADAPTATION_MAX, adaptation_before + data.adaptation_gain)
+		if opportunity:
+			opportunity_count += 1
+		else:
+			mistimed_count += 1
 	total_gain += gain
 	max_gain = maxi(max_gain, gain)
 	last = {
-		"action": id, "state": state, "base_fear": data.base_fear,
+		"action": id, "state": state, "current_state": resident.state, "base_fear": data.base_fear,
 		"state_multiplier": state_multiplier, "adaptation_multiplier": adaptation_multiplier,
+		"timing_multiplier": timing_multiplier, "opportunity": opportunity,
 		"gain": gain, "missed": missed, "adaptation_before": adaptation_before,
 	}
 	return last

@@ -31,7 +31,7 @@ func setup(game: Node) -> void:
 	for child in game.room.get_children():
 		if child is Label: child.theme = theme
 	make_label("GHOST HOME", Rect2(40, 14, 360, 40), 30)
-	make_label("CORE PROTOTYPE v0.1", Rect2(330, 22, 360, 32), 17)
+	make_label("CORE PROTOTYPE v0.2", Rect2(330, 22, 360, 32), 17)
 	fear_label = make_label("", Rect2(40, 66, 630, 38), 22)
 	fear_gauge = ProgressBar.new()
 	fear_gauge.position = Vector2(40, 111)

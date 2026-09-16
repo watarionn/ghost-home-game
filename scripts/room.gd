@@ -1,4 +1,5 @@
 extends Node2D
+const Balance = preload("res://data/balance.gd")
 var current_action := ""
 var effect_remaining := 0.0
 var state_label: Label
@@ -6,10 +7,10 @@ var feedback_label: Label
 
 
 func _ready() -> void:
-	add_caption("TV", Vector2(125, 118), Vector2(180, 38))
-	add_caption("水場", Vector2(515, 118), Vector2(180, 38))
+	add_caption("TV", Vector2(125, 3), Vector2(180, 38))
+	add_caption("水場", Vector2(515, 3), Vector2(180, 38))
 	add_caption("ベッド", Vector2(880, 3), Vector2(180, 38))
-	add_caption("散歩スペース", Vector2(465, 405), Vector2(260, 36))
+	add_caption("通路", Vector2(440, 405), Vector2(260, 36))
 	state_label = add_caption("", Vector2.ZERO, Vector2(260, 38))
 	feedback_label = add_caption("", Vector2.ZERO, Vector2(430, 70))
 	feedback_label.add_theme_color_override("font_color", Color("ffe4a0"))
@@ -32,7 +33,11 @@ func add_caption(text: String, pos: Vector2, dimensions: Vector2) -> Label:
 func update_view(game: Node) -> void:
 	var resident = $Resident
 	state_label.text = resident.LABELS[resident.state]
+	if resident.state == "WATCH_TV" and resident.state_elapsed_time() < 0.8:
+		state_label.text = "テレビをつけた"
 	if resident.state == "SLEEP": state_label.text = "Z z z   " + state_label.text
+	if resident.state == "SLEEP" and resident.state_elapsed_time() < 0.8:
+		state_label.text = "ふぁ… うとうと"
 	if resident.state == "SURPRISED": state_label.text = "!!   " + state_label.text
 	state_label.position = resident.position + Vector2(-130, 45)
 	feedback_label.text = game.feedback
@@ -49,6 +54,13 @@ func _draw() -> void:
 	draw_style_box(room_style(), Rect2(0, 0, 1200, 450))
 	for x in range(30, 1200, 60):
 		draw_line(Vector2(x, 290), Vector2(x, 430), Color("344149"), 1)
+	# A fixed doorway and runner identify the shadow corridor without a hint light.
+	var zone := Balance.SHADOW_ZONE_X
+	draw_rect(Rect2(zone.x, 285, zone.y - zone.x, 123), Color("46505a"))
+	draw_line(Vector2(zone.x, 285), Vector2(zone.x, 405), Color("7e8790"), 6)
+	draw_line(Vector2(zone.y, 285), Vector2(zone.y, 405), Color("7e8790"), 6)
+	draw_line(Vector2(zone.x, 285), Vector2(zone.y, 285), Color("7e8790"), 6)
+	draw_line(Vector2(zone.x + 8, 396), Vector2(zone.y - 8, 396), Color("a4a098"), 3)
 	# TV and sofa: standard shapes only.
 	draw_rect(Rect2(130, 25, 170, 88), Color("131b28"))
 	draw_rect(Rect2(140, 35, 150, 64), Color("78b6c9"))
@@ -70,8 +82,8 @@ func _draw() -> void:
 				for radius in [35.0, 55.0, 75.0]:
 					draw_arc(Vector2(700, 310), radius, -1.0, 1.0, 28, Color("edd294"), 4)
 			"SHADOW":
-				draw_circle(Vector2(1050, 305), 20, Color("101522"))
-				draw_rect(Rect2(1030, 310, 40, 60), Color("101522"))
+				draw_circle(Vector2(zone.y - 22, 302), 20, Color("101522"))
+				draw_rect(Rect2(zone.y - 42, 307, 40, 60), Color("101522"))
 
 
 func room_style() -> StyleBoxFlat:
