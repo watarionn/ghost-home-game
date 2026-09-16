@@ -67,6 +67,86 @@ Tester: Project owner
 
 ---
 
+## Playtest 002 — Opportunity Window Human Playtest
+
+Date: 2026-09-16
+
+Build / Commit: PR #2 / `feature/stage1-core-prototype-v01` / v0.2 implementation (`0dae06e026fbdb68246fa51120454f4cef8c6431`)
+
+Tester: Project owner
+
+### Qualitative Result
+
+- 住人を見ていたくなるか: **とてもYES**
+- 「今だ！」が発生するか: **すこしYES**
+- ボタンを連打したくなるか: **あんまりない**
+- 待ち時間が退屈か: **すこしYES**
+- 怪奇現象が効いた時に気持ちいいか: **YES**
+- Opportunityを観察だけで理解できたか: **NO**
+- タイミングを外した時に「もったいない」と感じたか: **YES**
+- 次のOpportunityを待つのが「待ち作業」ではなく期待になったか: **すこしYES**
+- GOOD TIMING / Mistimed / Missの違いをFeedbackから理解できたか: **全然わからない**
+
+### Comparison with Playtest 001
+
+#### Improved
+
+- 「今だ！」は「あんまりない」から「すこしYES」へ改善。
+- ボタン連打欲求は「少しYES」から「あんまりない」へ改善。
+- タイミングを外した際に「もったいない」という損失感が発生した。
+- Opportunityを待つことに少し期待感が生まれた。
+
+#### Maintained Strengths
+
+- 住人を見ていたくなる: **とてもYES**を維持。
+- 怪奇現象が効いた時に気持ちいい: **YES**を維持。
+
+#### Remaining Problems
+
+- Opportunity Windowを画面観察だけでは理解できなかった。
+- GOOD TIMING / Mistimed / Missの違いをFeedbackからほぼ理解できなかった。
+- 待ち時間の退屈さは「すこしYES」のままで、十分には改善していない。
+- 「今だ！」は改善したが、まだ強いYESには届いていない。
+
+### Core Fun Assessment
+
+**Checkpoint 1: NOT PASS YET**
+
+理由は、Core Mechanic自体の方向性よりも **legibility / feedback clarity** にある。
+
+v0.2では自動Policy Probe上、Opportunity AwareがCooldown Spamより大幅に有利になり、人間プレイでも連打欲求が減少した。よって「観察に報酬を与える」ルール変更自体は機能している可能性が高い。
+
+一方、プレイヤーがOpportunityを自然に読み取れず、結果FeedbackからGOOD / Mistimed / Missを理解できないため、現在はゲーム内部のルールとプレイヤーの認知が噛み合っていない。
+
+現段階の主課題:
+
+> 正解を直接表示せずに、住人の生活演出と結果Feedbackだけで「何がチャンスで、なぜ今の一手が成功・失敗したか」を理解できるようにすること。
+
+### Hypothesis for Next Build
+
+v0.3では新ルールを増やさず、主に情報設計を改善する。
+
+1. Opportunityの前兆・開始演出を生活アニメーション側で明確化する。
+2. GOOD / Mistimed / Missで、文字だけでなくサイズ・動き・一時的な画面反応を明確に変える。
+3. Feedbackを「結果」と「理由」に分け、短時間でも読み取れる順序にする。
+4. 初回プレイ中に説明文を常時出すのではなく、最初の数回だけ住人の自然な仕草や短い補助表現で学べるようにする。
+5. 待ち時間には新しい操作を増やさず、住人の次の行動を予感できる小さな予兆を追加する。
+
+### Proposed Direction for v0.3
+
+**テーマ: Readability / Learnability Pass**
+
+機械的な数値調整は最小限に留め、以下を優先する。
+
+- Opportunity cueの強化
+- GOOD / Mistimed / Miss feedbackの明確な差別化
+- 「いつ押すか」を学べる非言語的な導線
+- 待ち時間中の期待感を少し高める生活予兆
+
+v0.3実装後、Playtest 003で同じ9項目を再評価する。
+
+---
+
 ## Record Template
 
 ### Playtest
