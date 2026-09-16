@@ -25,7 +25,7 @@ func run() -> void:
 			check(game.actions.last.timing_multiplier == (1.75 if inside else 0.50), "timing multiplier")
 			check(game.actions.adaptation[spec[1]] == spec[5], "both timings increase adaptation equally")
 			check(game.actions.opportunity_count == int(inside) and game.actions.mistimed_count == int(not inside), "disjoint timing counters")
-			check(game.feedback.contains("GOOD TIMING" if inside else "タイミングが悪い"), "feedback explains timing after action")
+			check(game.feedback.contains("大成功！" if inside else "効いたが弱い…"), "feedback explains timing after action")
 	# Fixed room-local X interval with inclusive endpoints; Y is irrelevant.
 	for x in [499.999, 500.0, 570.0, 640.0, 640.001]:
 		for y in [200.0, 330.0, 380.0]:

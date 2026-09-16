@@ -14,6 +14,9 @@ var feedback := ""
 var feedback_remaining := 0.0
 var debug_visible := false
 var last_report := ""
+var feedback_kind := ""
+var feedback_reason := ""
+var feedback_gain := 0
 
 
 func _ready() -> void:
@@ -30,6 +33,9 @@ func restart() -> void:
 	feedback_remaining = 0.0
 	debug_visible = false
 	last_report = ""
+	feedback_kind = ""
+	feedback_reason = ""
+	feedback_gain = 0
 	actions.reset()
 	resident.reset()
 	refresh()
@@ -60,19 +66,35 @@ func perform_action(id: String) -> void:
 		return
 	fear = clampi(fear + effect.gain, 0, Balance.WIN_FEAR)
 	resident.fear = fear
+	feedback_gain = effect.gain
+	feedback_kind = "MISS" if effect.missed else ("GOOD" if effect.opportunity else "MISTIMED")
+	feedback_reason = outcome_reason(effect)
 	if effect.missed:
-		feedback = "気づかなかった…\n眠っていて見えない"
+		feedback = "気づかなかった…"
 	else:
-		feedback = "恐怖 +%d！" % effect.gain
+		feedback = "大成功！" if effect.opportunity else "効いたが弱い…"
+		feedback += "\n恐怖 +%d" % effect.gain
 		if effect.adaptation_before > 0:
-			feedback += " 慣れてきた…"
-		var timing_text := "GOOD TIMING" if effect.opportunity else "タイミングが悪い"
-		feedback += "\n%s ×%.2f" % [timing_text, effect.timing_multiplier]
-		resident.react()
+			feedback_reason += "\n慣れてきた…"
+		resident.react(effect.opportunity)
+	feedback += "\n" + feedback_reason
 	feedback_remaining = Balance.FEEDBACK_TIME
 	if fear >= Balance.WIN_FEAR:
 		finish("WIN")
 	refresh()
+
+
+func outcome_reason(effect: Dictionary) -> String:
+	if effect.missed:
+		return "眠っていて人影が見えない" if effect.action == "SHADOW" else "眠っていて暗さに気づかない"
+	if effect.opportunity:
+		return {"LIGHT": "テレビをつけた直後だった！", "SOUND": "寝入りばなに音が響いた！", "SHADOW": "通路を横切った瞬間に見えた！"}[effect.action]
+	if effect.current_state in ["SURPRISED", "ALERT"]:
+		return "まだ驚きへの反応が続いている…"
+	match effect.action:
+		"LIGHT": return "テレビに慣れて落ち着いている…" if effect.state == "WATCH_TV" else "テレビをつけた直後ではなかった"
+		"SOUND": return "眠りが安定している…" if effect.state == "SLEEP" else "寝入りばなではなかった"
+		_: return "人影を見せる位置が悪かった…"
 
 
 func toggle_pause() -> void:
@@ -110,11 +132,14 @@ func finish(outcome: String) -> void:
 	for id in Balance.ACTION_IDS:
 		lines.append("%s_MISS_COUNT=%d" % [id, actions.miss_count[id]])
 	for id in Balance.ACTION_IDS:
-		lines.append("%s_FINAL_ADAPTATION=%d" % [id, actions.adaptation[id]])
+		lines.append("%s_FINAL_ADAPTATION=%.3f" % [id, actions.adaptation[id]])
 	lines.append("MAX_FEAR_GAIN=%d" % actions.max_gain)
 	lines.append("AVERAGE_FEAR_GAIN=%.3f" % actions.average_gain())
 	lines.append("OPPORTUNITY_SUCCESS_COUNT=%d" % actions.opportunity_count)
 	lines.append("MISTIMED_ACTION_COUNT=%d" % actions.mistimed_count)
+	for id in Balance.ACTION_IDS:
+		lines.append("%s_RECOVERED_TOTAL=%.3f" % [id, actions.recovered_total[id]])
+	lines.append("MAX_SAME_ACTIVITY_STREAK=%d" % resident.max_same_activity_streak)
 	last_report = "\n".join(lines)
 	print(last_report)
 

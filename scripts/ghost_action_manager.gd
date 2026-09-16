@@ -10,11 +10,15 @@ var total_gain := 0
 var max_gain := 0
 var opportunity_count := 0
 var mistimed_count := 0
+var recovery_wait: Dictionary = {}
+var recovered_total: Dictionary = {}
 
 
 func reset() -> void:
 	for id in Balance.ACTION_IDS:
-		adaptation[id] = 0
+		adaptation[id] = 0.0
+		recovery_wait[id] = 0.0
+		recovered_total[id] = 0.0
 		cooldown[id] = 0.0
 		use_count[id] = 0
 		miss_count[id] = 0
@@ -28,6 +32,17 @@ func reset() -> void:
 func advance(delta: float) -> void:
 	for id in Balance.ACTION_IDS:
 		cooldown[id] = maxf(0.0, cooldown[id] - delta)
+		# Integrate only the part of this interval at/after the 20s boundary.
+		var wait_left := maxf(0.0, Balance.RECOVERY_DELAY - recovery_wait[id])
+		var recovery_seconds := maxf(0.0, delta - wait_left)
+		recovery_wait[id] += delta
+		var recovered := minf(adaptation[id], recovery_seconds * Balance.RECOVERY_RATE)
+		adaptation[id] = maxf(0.0, adaptation[id] - recovered)
+		recovered_total[id] += recovered
+
+
+func is_recovering(id: String) -> bool:
+	return recovery_wait[id] >= Balance.RECOVERY_DELAY and adaptation[id] > 0.0
 
 
 func execute(id: String, resident: Node) -> Dictionary:
@@ -41,7 +56,7 @@ func execute(id: String, resident: Node) -> Dictionary:
 	# 0.0 is the debug sentinel for a Miss: no timing multiplier is applied.
 	var timing_multiplier := 0.0 if missed else (
 		Balance.GOOD_TIMING_MULTIPLIER if opportunity else Balance.MISTIMED_MULTIPLIER)
-	var adaptation_before: int = adaptation[id]
+	var adaptation_before: float = adaptation[id]
 	var adaptation_multiplier := maxf(
 		Balance.ADAPTATION_MIN_MULTIPLIER, 1.0 - adaptation_before / 100.0)
 	var gain := 0 if missed else roundi(data.base_fear * state_multiplier * timing_multiplier * adaptation_multiplier)
@@ -50,7 +65,8 @@ func execute(id: String, resident: Node) -> Dictionary:
 	if missed:
 		miss_count[id] += 1
 	else:
-		adaptation[id] = mini(Balance.ADAPTATION_MAX, adaptation_before + data.adaptation_gain)
+		recovery_wait[id] = 0.0
+		adaptation[id] = minf(Balance.ADAPTATION_MAX, adaptation_before + data.adaptation_gain)
 		if opportunity:
 			opportunity_count += 1
 		else:

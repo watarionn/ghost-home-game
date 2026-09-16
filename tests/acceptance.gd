@@ -87,8 +87,10 @@ func run() -> void:
 			game.actions.execute(id, game.resident)
 		check(game.actions.adaptation[id] == 80, "adaptation clamps at 80: " + id)
 		check(is_equal_approx(game.actions.last.adaptation_multiplier, 0.2), "minimum multiplier 0.2")
-		game.actions.advance(100.0)
-		check(game.actions.adaptation[id] == 80, "adaptation never decays")
+		game.actions.advance(19.0)
+		check(game.actions.adaptation[id] == 80, "adaptation does not recover before delay")
+		game.actions.advance(81.0)
+		check(game.actions.adaptation[id] == 0.0, "v0.3 rested adaptation recovers to zero")
 	game.actions.reset()
 	game.resident.enter_state("WALK")
 	game.actions.execute("LIGHT", game.resident)
@@ -109,6 +111,7 @@ func run() -> void:
 			game.resident.enter_state(state)
 			check(game.resident.remaining >= ranges[state].x and game.resident.remaining <= ranges[state].y, "duration " + state)
 	var visits := {"WATCH_TV": 0, "DRINK_WATER": 0, "SLEEP": 0}
+	game.resident.reset() # Empty history isolates the unchanged base distribution.
 	game.resident.rng.seed = 8472
 	for i in 10000:
 		visits[game.resident.choose_activity()] += 1

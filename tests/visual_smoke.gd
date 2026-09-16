@@ -13,7 +13,7 @@ func _initialize() -> void:
 func capture(filename: String) -> void:
 	await process_frame
 	await RenderingServer.frame_post_draw
-	var error := root.get_texture().get_image().save_png("res://test-output/v02_" + filename + ".png")
+	var error := root.get_texture().get_image().save_png("res://test-output/v03_" + filename + ".png")
 	screenshot_count += 1
 	if error != OK:
 		failures += 1
@@ -55,6 +55,11 @@ func run() -> void:
 		game.resident.enter_state(state)
 		game.advance(1.0)
 		await capture(state.to_lower() + "_settled")
+	for sample in [["WATCH_TV", 0.25], ["WATCH_TV", 1.5], ["WATCH_TV", 3.1], ["SLEEP", 0.7], ["SLEEP", 2.0], ["SLEEP", 4.1]]:
+		game.restart()
+		game.resident.enter_state(sample[0])
+		game.advance(sample[1])
+		await capture("cue_%s_%.2f" % [sample[0].to_lower(), sample[1]])
 	# Mouse-triggered GOOD TIMING and mistimed feedback for each of the three actions.
 	for example in [["LIGHT", "WATCH_TV", 0.0, 220, 200, 22],
 		["SOUND", "SLEEP", 0.0, 950, 600, 36],
@@ -70,6 +75,19 @@ func run() -> void:
 		await click_at(Vector2(example[4], 710))
 		verify(game.fear == example[5], "Mouse timing result " + example[0])
 		await capture(example[0].to_lower() + ("_good" if game.actions.last.opportunity else "_mistimed"))
+		game.advance(0.25)
+		await capture(example[0].to_lower() + ("_good_reaction" if game.actions.last.opportunity else "_mistimed_reaction"))
+	game.restart()
+	game.resident.enter_state("WATCH_TV")
+	game.actions.adaptation.LIGHT = 40.0
+	game.perform_action("LIGHT")
+	game.advance(0.25)
+	await capture("habituated_good")
+	game.restart()
+	game.resident.enter_state("SLEEP")
+	game.advance(5.0)
+	game.perform_action("SHADOW")
+	await capture("shadow_miss_settled")
 	game.restart()
 	game.resident.enter_state("WATCH_TV")
 	game.debug_visible = true

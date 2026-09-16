@@ -29,9 +29,9 @@ func setup(game: Node) -> void:
 	root.theme = theme
 	# Room Labels share the same system font.
 	for child in game.room.get_children():
-		if child is Label: child.theme = theme
+		if child is Control: child.theme = theme
 	make_label("GHOST HOME", Rect2(40, 14, 360, 40), 30)
-	make_label("CORE PROTOTYPE v0.2", Rect2(330, 22, 360, 32), 17)
+	make_label("CORE PROTOTYPE v0.3", Rect2(330, 22, 360, 32), 17)
 	fear_label = make_label("", Rect2(40, 66, 630, 38), 22)
 	fear_gauge = ProgressBar.new()
 	fear_gauge.position = Vector2(40, 111)
@@ -118,7 +118,7 @@ func update_view(game: Node) -> void:
 		var id: String = Balance.ACTION_IDS[i]
 		var cd: float = game.actions.cooldown[id]
 		var status := "発動可能" if cd <= 0 else "あと %.1f 秒" % cd
-		action_buttons[id].text = "%d  %s / %s\n%s     慣れ %d / %d" % [
+		action_buttons[id].text = "%d  %s / %s\n%s     慣れ %.1f / %d" % [
 			i + 1, id, Balance.ACTIONS[id].label, status, game.actions.adaptation[id], Balance.ADAPTATION_MAX]
 		action_buttons[id].disabled = cd > 0 or game.paused or not game.result.is_empty()
 	pause_button.disabled = not game.result.is_empty()

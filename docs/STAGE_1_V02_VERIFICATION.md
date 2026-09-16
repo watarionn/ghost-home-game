@@ -1,5 +1,7 @@
 # Stage 1 Core Prototype v0.2 実装・検証報告
 
+> v0.2実装コミット `0dae06e026fbdb68246fa51120454f4cef8c6431` の過去記録です。以下の数値・Playtest 002待ちの記載は当時の結果を保存しています。現在のv0.3とPlaytest 003確認事項は [STAGE_1_V03_VERIFICATION.md](STAGE_1_V03_VERIFICATION.md) を参照してください。
+
 Refs #1, #3 / PR #2 / `feature/stage1-core-prototype-v01`
 
 検証日: 2026-09-16。正本は `docs/STAGE_1_CORE_PROTOTYPE_V02_SPEC.md`。

@@ -22,6 +22,8 @@ func run() -> void:
 		var total_fear := 0
 		var total_opportunity := 0
 		var total_mistimed := 0
+		var recovered := {"LIGHT": 0.0, "SOUND": 0.0, "SHADOW": 0.0}
+		var max_streak := 0
 		for seed_value in range(20):
 			game.resident.rng.seed = seed_value
 			game.restart()
@@ -46,6 +48,8 @@ func run() -> void:
 			for id in ["LIGHT", "SOUND", "SHADOW"]:
 				uses += game.actions.use_count[id]
 				misses += game.actions.miss_count[id]
+				recovered[id] += game.actions.recovered_total[id]
+			max_streak = maxi(max_streak, game.resident.max_same_activity_streak)
 			if uses != misses + game.actions.opportunity_count + game.actions.mistimed_count:
 				failures += 1
 			if policy == "opportunity_aware" and (misses > 0 or game.actions.mistimed_count > 0):
@@ -56,16 +60,20 @@ func run() -> void:
 				"opportunity_successes": game.actions.opportunity_count,
 				"mistimed_actions": game.actions.mistimed_count, "misses": misses,
 				"uses": game.actions.use_count.duplicate(),
+				"recovered": game.actions.recovered_total.duplicate(),
+				"max_same_activity_streak": game.resident.max_same_activity_streak,
 			})
 		summary[policy] = {
 			"games": 20, "wins": wins, "win_rate": wins / 20.0,
 			"mean_seconds": total_time / 20, "mean_fear": total_fear / 20.0,
 			"mean_opportunity_successes": total_opportunity / 20.0,
 			"mean_mistimed_actions": total_mistimed / 20.0,
+			"mean_recovered": {"LIGHT": recovered.LIGHT / 20, "SOUND": recovered.SOUND / 20, "SHADOW": recovered.SHADOW / 20},
+			"max_same_activity_streak": max_streak,
 		}
 	DirAccess.make_dir_recursive_absolute("res://test-output")
-	var file := FileAccess.open("res://test-output/policy_probe_v02.json", FileAccess.WRITE)
-	file.store_string(JSON.stringify({"version": "0.2", "step_seconds": 0.1,
+	var file := FileAccess.open("res://test-output/policy_probe_v03.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify({"version": "0.3", "step_seconds": 0.1,
 		"seeds": "0..19", "summary": summary, "trials": trials, "failures": failures}, "\t"))
 	print("POLICY_PROBE: " + JSON.stringify(summary))
 	print("POLICY_PROBE_VALIDATION: 60 games, %d failures; human Core Fun NOT VERIFIED" % failures)
