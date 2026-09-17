@@ -1,0 +1,1315 @@
+{
+	"failures": 0,
+	"seeds": "0..19",
+	"step_seconds": 0.1,
+	"summary": {
+		"cooldown_order": {
+			"games": 20,
+			"max_same_activity_streak": 2,
+			"mean_fear": 100.0,
+			"mean_mistimed_actions": 32.15,
+			"mean_opportunity_successes": 1.15,
+			"mean_recovered": {
+				"LIGHT": 8.46000000000002,
+				"SHADOW": 12.2800000000001,
+				"SOUND": 0.0
+			},
+			"mean_seconds": 118.434999999994,
+			"win_rate": 1.0,
+			"wins": 20
+		},
+		"light_only": {
+			"games": 20,
+			"max_same_activity_streak": 3,
+			"mean_fear": 37.8,
+			"mean_mistimed_actions": 17.15,
+			"mean_opportunity_successes": 2.05,
+			"mean_recovered": {
+				"LIGHT": 9.42500000000032,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"mean_seconds": 180.0,
+			"win_rate": 0.0,
+			"wins": 0
+		},
+		"opportunity_aware": {
+			"games": 20,
+			"max_same_activity_streak": 2,
+			"mean_fear": 100.0,
+			"mean_mistimed_actions": 0.0,
+			"mean_opportunity_successes": 3.15,
+			"mean_recovered": {
+				"LIGHT": 1.68,
+				"SHADOW": 6.96,
+				"SOUND": 2.905
+			},
+			"mean_seconds": 36.9899999999979,
+			"win_rate": 1.0,
+			"wins": 20
+		}
+	},
+	"trials": [
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 39,
+			"opportunity_successes": 2,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 135.899999999994,
+			"seed": 0,
+			"uses": {
+				"LIGHT": 17,
+				"SHADOW": 10,
+				"SOUND": 14
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 6,
+			"mistimed_actions": 32,
+			"opportunity_successes": 2,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 12.4,
+				"SHADOW": 25.3000000000001,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 131.299999999994,
+			"seed": 1,
+			"uses": {
+				"LIGHT": 17,
+				"SHADOW": 9,
+				"SOUND": 14
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 27,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 90.5999999999949,
+			"seed": 2,
+			"uses": {
+				"LIGHT": 12,
+				"SHADOW": 7,
+				"SOUND": 9
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 41,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 137.699999999994,
+			"seed": 3,
+			"uses": {
+				"LIGHT": 18,
+				"SHADOW": 10,
+				"SOUND": 14
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 43,
+			"opportunity_successes": 0,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 141.399999999994,
+			"seed": 4,
+			"uses": {
+				"LIGHT": 18,
+				"SHADOW": 10,
+				"SOUND": 15
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 2,
+			"misses": 12,
+			"mistimed_actions": 21,
+			"opportunity_successes": 2,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 41.0000000000003,
+				"SHADOW": 43.2000000000004,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 113.399999999994,
+			"seed": 5,
+			"uses": {
+				"LIGHT": 15,
+				"SHADOW": 8,
+				"SOUND": 12
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 6,
+			"mistimed_actions": 13,
+			"opportunity_successes": 2,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 20.5,
+				"SHADOW": 25.3000000000001,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 64.7999999999963,
+			"seed": 6,
+			"uses": {
+				"LIGHT": 9,
+				"SHADOW": 5,
+				"SOUND": 7
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 2,
+			"misses": 0,
+			"mistimed_actions": 44,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 150.999999999994,
+			"seed": 7,
+			"uses": {
+				"LIGHT": 19,
+				"SHADOW": 11,
+				"SOUND": 15
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 45,
+			"opportunity_successes": 0,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 150.999999999994,
+			"seed": 8,
+			"uses": {
+				"LIGHT": 19,
+				"SHADOW": 11,
+				"SOUND": 15
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 6,
+			"mistimed_actions": 25,
+			"opportunity_successes": 2,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 20.5,
+				"SHADOW": 25.3000000000001,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 105.699999999994,
+			"seed": 9,
+			"uses": {
+				"LIGHT": 14,
+				"SHADOW": 8,
+				"SOUND": 11
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 5,
+			"mistimed_actions": 31,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 12.4,
+				"SHADOW": 25.3000000000001,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 121.199999999993,
+			"seed": 10,
+			"uses": {
+				"LIGHT": 15,
+				"SHADOW": 9,
+				"SOUND": 13
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 46,
+			"opportunity_successes": 0,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 151.499999999994,
+			"seed": 11,
+			"uses": {
+				"LIGHT": 19,
+				"SHADOW": 11,
+				"SOUND": 16
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 6,
+			"mistimed_actions": 38,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 17.6,
+				"SHADOW": 25.3000000000001,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 150.999999999994,
+			"seed": 12,
+			"uses": {
+				"LIGHT": 19,
+				"SHADOW": 11,
+				"SOUND": 15
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 6,
+			"mistimed_actions": 14,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 20.0,
+				"SHADOW": 25.3000000000001,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 64.7999999999963,
+			"seed": 13,
+			"uses": {
+				"LIGHT": 9,
+				"SHADOW": 5,
+				"SOUND": 7
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 23,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 75.4999999999957,
+			"seed": 14,
+			"uses": {
+				"LIGHT": 10,
+				"SHADOW": 6,
+				"SOUND": 8
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 5,
+			"mistimed_actions": 39,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 12.4,
+				"SHADOW": 25.3000000000001,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 150.999999999994,
+			"seed": 15,
+			"uses": {
+				"LIGHT": 19,
+				"SHADOW": 11,
+				"SOUND": 15
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 40,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 135.899999999994,
+			"seed": 16,
+			"uses": {
+				"LIGHT": 17,
+				"SHADOW": 10,
+				"SOUND": 14
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 36,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 121.199999999993,
+			"seed": 17,
+			"uses": {
+				"LIGHT": 15,
+				"SHADOW": 9,
+				"SOUND": 13
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 17,
+			"opportunity_successes": 2,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 60.3999999999966,
+			"seed": 18,
+			"uses": {
+				"LIGHT": 8,
+				"SHADOW": 5,
+				"SOUND": 6
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 5,
+			"mistimed_actions": 29,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"recovered": {
+				"LIGHT": 12.4,
+				"SHADOW": 25.3000000000001,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 113.399999999994,
+			"seed": 19,
+			"uses": {
+				"LIGHT": 15,
+				"SHADOW": 8,
+				"SOUND": 12
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 2,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 4,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 8.90000000000001,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 52.399999999997,
+			"seed": 0,
+			"uses": {
+				"LIGHT": 2,
+				"SHADOW": 1,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 8.6
+			},
+			"result": "WIN",
+			"seconds": 32.2999999999982,
+			"seed": 1,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 1,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 18.1,
+				"SOUND": 3.50000000000001
+			},
+			"result": "WIN",
+			"seconds": 40.6999999999977,
+			"seed": 2,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 2,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 22.9999999999987,
+			"seed": 3,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 2,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 2,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 4,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 5.20000000000002,
+				"SHADOW": 6.40000000000001,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 50.0999999999972,
+			"seed": 4,
+			"uses": {
+				"LIGHT": 2,
+				"SHADOW": 1,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 13.2,
+				"SOUND": 5.50000000000001
+			},
+			"result": "WIN",
+			"seconds": 34.1999999999981,
+			"seed": 5,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 1,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 23.8999999999986,
+			"seed": 6,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 2,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 5.70000000000001,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 26.9999999999985,
+			"seed": 7,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 2,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 11.4,
+				"SOUND": 4.60000000000001
+			},
+			"result": "WIN",
+			"seconds": 32.9999999999981,
+			"seed": 8,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 2,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 2,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 17.2,
+				"SOUND": 0.200000000000013
+			},
+			"result": "WIN",
+			"seconds": 47.1999999999973,
+			"seed": 9,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 2,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 7.1,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 27.9999999999984,
+			"seed": 10,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 2,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 2.80000000000001,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 27.4999999999984,
+			"seed": 11,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 1,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 4,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 16.7,
+				"SHADOW": 11.4,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 61.4999999999965,
+			"seed": 12,
+			"uses": {
+				"LIGHT": 2,
+				"SHADOW": 2,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 8.2,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 35.599999999998,
+			"seed": 13,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 2,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 17.7,
+				"SOUND": 1.30000000000001
+			},
+			"result": "WIN",
+			"seconds": 39.9999999999977,
+			"seed": 14,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 1,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 6.40000000000001,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 35.699999999998,
+			"seed": 15,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 2,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 15.1
+			},
+			"result": "WIN",
+			"seconds": 39.1999999999978,
+			"seed": 16,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 1,
+				"SOUND": 2
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 17.4
+			},
+			"result": "WIN",
+			"seconds": 40.8999999999977,
+			"seed": 17,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 1,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 8.6,
+				"SOUND": 1.90000000000001
+			},
+			"result": "WIN",
+			"seconds": 30.6999999999983,
+			"seed": 18,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 2,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"max_same_activity_streak": 1,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 7.8,
+				"SOUND": 0.0
+			},
+			"result": "WIN",
+			"seconds": 36.8999999999979,
+			"seed": 19,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 2,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 40,
+			"max_same_activity_streak": 2,
+			"misses": 0,
+			"mistimed_actions": 20,
+			"opportunity_successes": 3,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 0,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 48,
+			"max_same_activity_streak": 1,
+			"misses": 4,
+			"mistimed_actions": 16,
+			"opportunity_successes": 3,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 8.60000000000001,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 1,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 38,
+			"max_same_activity_streak": 2,
+			"misses": 0,
+			"mistimed_actions": 21,
+			"opportunity_successes": 2,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 2,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 33,
+			"max_same_activity_streak": 1,
+			"misses": 2,
+			"mistimed_actions": 20,
+			"opportunity_successes": 1,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 4.30000000000001,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 3,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 31,
+			"max_same_activity_streak": 1,
+			"misses": 4,
+			"mistimed_actions": 18,
+			"opportunity_successes": 1,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 8.60000000000001,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 4,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 35,
+			"max_same_activity_streak": 2,
+			"misses": 6,
+			"mistimed_actions": 15,
+			"opportunity_successes": 2,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 12.9,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 5,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 43,
+			"max_same_activity_streak": 2,
+			"misses": 6,
+			"mistimed_actions": 15,
+			"opportunity_successes": 2,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 18.500000000006,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 6,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 34,
+			"max_same_activity_streak": 1,
+			"misses": 4,
+			"mistimed_actions": 18,
+			"opportunity_successes": 1,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 8.60000000000001,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 7,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 41,
+			"max_same_activity_streak": 2,
+			"misses": 4,
+			"mistimed_actions": 15,
+			"opportunity_successes": 4,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 8.60000000000001,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 8,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 32,
+			"max_same_activity_streak": 1,
+			"misses": 4,
+			"mistimed_actions": 18,
+			"opportunity_successes": 1,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 4.30000000000001,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 9,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 42,
+			"max_same_activity_streak": 1,
+			"misses": 6,
+			"mistimed_actions": 14,
+			"opportunity_successes": 3,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 12.9,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 10,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 34,
+			"max_same_activity_streak": 2,
+			"misses": 4,
+			"mistimed_actions": 17,
+			"opportunity_successes": 2,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 8.60000000000001,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 11,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 38,
+			"max_same_activity_streak": 1,
+			"misses": 6,
+			"mistimed_actions": 16,
+			"opportunity_successes": 1,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 12.9,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 12,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 30,
+			"max_same_activity_streak": 2,
+			"misses": 4,
+			"mistimed_actions": 18,
+			"opportunity_successes": 1,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 8.60000000000001,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 13,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 43,
+			"max_same_activity_streak": 2,
+			"misses": 5,
+			"mistimed_actions": 16,
+			"opportunity_successes": 2,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 28.6000000000002,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 14,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 28,
+			"max_same_activity_streak": 1,
+			"misses": 7,
+			"mistimed_actions": 15,
+			"opportunity_successes": 1,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 21.0000000000001,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 15,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 43,
+			"max_same_activity_streak": 1,
+			"misses": 2,
+			"mistimed_actions": 18,
+			"opportunity_successes": 3,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 4.30000000000001,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 16,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 41,
+			"max_same_activity_streak": 3,
+			"misses": 2,
+			"mistimed_actions": 17,
+			"opportunity_successes": 4,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 4.30000000000001,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 17,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 37,
+			"max_same_activity_streak": 2,
+			"misses": 2,
+			"mistimed_actions": 19,
+			"opportunity_successes": 2,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 4.30000000000001,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 18,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 45,
+			"max_same_activity_streak": 2,
+			"misses": 4,
+			"mistimed_actions": 17,
+			"opportunity_successes": 2,
+			"policy": "light_only",
+			"recovered": {
+				"LIGHT": 8.60000000000001,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 19,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		}
+	],
+	"version": "0.3"
+}

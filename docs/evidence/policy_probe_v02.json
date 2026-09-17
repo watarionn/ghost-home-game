@@ -1,0 +1,937 @@
+{
+	"failures": 0,
+	"seeds": "0..19",
+	"step_seconds": 0.1,
+	"summary": {
+		"cooldown_order": {
+			"games": 20,
+			"mean_fear": 100.0,
+			"mean_mistimed_actions": 33.8,
+			"mean_opportunity_successes": 1.3,
+			"mean_seconds": 127.014999999994,
+			"win_rate": 1.0,
+			"wins": 20
+		},
+		"light_only": {
+			"games": 20,
+			"mean_fear": 39.0,
+			"mean_mistimed_actions": 17.15,
+			"mean_opportunity_successes": 2.5,
+			"mean_seconds": 180.0,
+			"win_rate": 0.0,
+			"wins": 0
+		},
+		"opportunity_aware": {
+			"games": 20,
+			"mean_fear": 100.0,
+			"mean_mistimed_actions": 0.0,
+			"mean_opportunity_successes": 3.15,
+			"mean_seconds": 36.6249999999979,
+			"win_rate": 1.0,
+			"wins": 20
+		}
+	},
+	"trials": [
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 39,
+			"opportunity_successes": 2,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 135.899999999994,
+			"seed": 0,
+			"uses": {
+				"LIGHT": 17,
+				"SHADOW": 10,
+				"SOUND": 14
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 10,
+			"mistimed_actions": 34,
+			"opportunity_successes": 2,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 151.499999999994,
+			"seed": 1,
+			"uses": {
+				"LIGHT": 19,
+				"SHADOW": 11,
+				"SOUND": 16
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 27,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 90.5999999999949,
+			"seed": 2,
+			"uses": {
+				"LIGHT": 12,
+				"SHADOW": 7,
+				"SOUND": 9
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 41,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 137.699999999994,
+			"seed": 3,
+			"uses": {
+				"LIGHT": 18,
+				"SHADOW": 10,
+				"SOUND": 14
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 43,
+			"opportunity_successes": 0,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 141.399999999994,
+			"seed": 4,
+			"uses": {
+				"LIGHT": 18,
+				"SHADOW": 10,
+				"SOUND": 15
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 15,
+			"mistimed_actions": 22,
+			"opportunity_successes": 3,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 131.299999999994,
+			"seed": 5,
+			"uses": {
+				"LIGHT": 17,
+				"SHADOW": 9,
+				"SOUND": 14
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 6,
+			"mistimed_actions": 23,
+			"opportunity_successes": 2,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 100.999999999994,
+			"seed": 6,
+			"uses": {
+				"LIGHT": 13,
+				"SHADOW": 7,
+				"SOUND": 11
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 44,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 150.999999999994,
+			"seed": 7,
+			"uses": {
+				"LIGHT": 19,
+				"SHADOW": 11,
+				"SOUND": 15
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 45,
+			"opportunity_successes": 0,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 150.999999999994,
+			"seed": 8,
+			"uses": {
+				"LIGHT": 19,
+				"SHADOW": 11,
+				"SOUND": 15
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 6,
+			"mistimed_actions": 31,
+			"opportunity_successes": 2,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 129.599999999994,
+			"seed": 9,
+			"uses": {
+				"LIGHT": 17,
+				"SHADOW": 9,
+				"SOUND": 13
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 5,
+			"mistimed_actions": 34,
+			"opportunity_successes": 2,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 135.899999999994,
+			"seed": 10,
+			"uses": {
+				"LIGHT": 17,
+				"SHADOW": 10,
+				"SOUND": 14
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 46,
+			"opportunity_successes": 0,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 151.499999999994,
+			"seed": 11,
+			"uses": {
+				"LIGHT": 19,
+				"SHADOW": 11,
+				"SOUND": 16
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 6,
+			"mistimed_actions": 38,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 150.999999999994,
+			"seed": 12,
+			"uses": {
+				"LIGHT": 19,
+				"SHADOW": 11,
+				"SOUND": 15
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 6,
+			"mistimed_actions": 23,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 97.1999999999945,
+			"seed": 13,
+			"uses": {
+				"LIGHT": 13,
+				"SHADOW": 7,
+				"SOUND": 10
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 23,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 75.4999999999957,
+			"seed": 14,
+			"uses": {
+				"LIGHT": 10,
+				"SHADOW": 6,
+				"SOUND": 8
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 5,
+			"mistimed_actions": 40,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 151.499999999994,
+			"seed": 15,
+			"uses": {
+				"LIGHT": 19,
+				"SHADOW": 11,
+				"SOUND": 16
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 47,
+			"opportunity_successes": 0,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 153.899999999994,
+			"seed": 16,
+			"uses": {
+				"LIGHT": 20,
+				"SHADOW": 11,
+				"SOUND": 16
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 36,
+			"opportunity_successes": 1,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 121.199999999993,
+			"seed": 17,
+			"uses": {
+				"LIGHT": 15,
+				"SHADOW": 9,
+				"SOUND": 13
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 17,
+			"opportunity_successes": 2,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 60.3999999999966,
+			"seed": 18,
+			"uses": {
+				"LIGHT": 8,
+				"SHADOW": 5,
+				"SOUND": 6
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 11,
+			"mistimed_actions": 23,
+			"opportunity_successes": 3,
+			"policy": "cooldown_order",
+			"result": "WIN",
+			"seconds": 121.199999999993,
+			"seed": 19,
+			"uses": {
+				"LIGHT": 15,
+				"SHADOW": 9,
+				"SOUND": 13
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 4,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 52.399999999997,
+			"seed": 0,
+			"uses": {
+				"LIGHT": 2,
+				"SHADOW": 1,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 32.2999999999982,
+			"seed": 1,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 1,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 40.6999999999977,
+			"seed": 2,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 2,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 22.9999999999987,
+			"seed": 3,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 2,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 4,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 50.0999999999972,
+			"seed": 4,
+			"uses": {
+				"LIGHT": 2,
+				"SHADOW": 1,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 34.1999999999981,
+			"seed": 5,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 1,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 23.8999999999986,
+			"seed": 6,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 2,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 26.9999999999985,
+			"seed": 7,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 2,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 32.9999999999981,
+			"seed": 8,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 2,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 47.1999999999973,
+			"seed": 9,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 2,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 27.9999999999984,
+			"seed": 10,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 2,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 27.4999999999984,
+			"seed": 11,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 1,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 4,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 49.0999999999972,
+			"seed": 12,
+			"uses": {
+				"LIGHT": 2,
+				"SHADOW": 1,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 35.599999999998,
+			"seed": 13,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 2,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 45.0999999999974,
+			"seed": 14,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 2,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 35.699999999998,
+			"seed": 15,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 2,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 39.1999999999978,
+			"seed": 16,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 1,
+				"SOUND": 2
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 40.8999999999977,
+			"seed": 17,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 1,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 30.6999999999983,
+			"seed": 18,
+			"uses": {
+				"LIGHT": 0,
+				"SHADOW": 2,
+				"SOUND": 1
+			}
+		},
+		{
+			"final_fear": 100,
+			"misses": 0,
+			"mistimed_actions": 0,
+			"opportunity_successes": 3,
+			"policy": "opportunity_aware",
+			"result": "WIN",
+			"seconds": 36.8999999999979,
+			"seed": 19,
+			"uses": {
+				"LIGHT": 1,
+				"SHADOW": 2,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 38,
+			"misses": 2,
+			"mistimed_actions": 18,
+			"opportunity_successes": 3,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 0,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 43,
+			"misses": 4,
+			"mistimed_actions": 17,
+			"opportunity_successes": 2,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 1,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 42,
+			"misses": 2,
+			"mistimed_actions": 17,
+			"opportunity_successes": 4,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 2,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 32,
+			"misses": 6,
+			"mistimed_actions": 15,
+			"opportunity_successes": 2,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 3,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 31,
+			"misses": 4,
+			"mistimed_actions": 18,
+			"opportunity_successes": 1,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 4,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 38,
+			"misses": 3,
+			"mistimed_actions": 18,
+			"opportunity_successes": 2,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 5,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 41,
+			"misses": 6,
+			"mistimed_actions": 15,
+			"opportunity_successes": 2,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 6,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 39,
+			"misses": 2,
+			"mistimed_actions": 19,
+			"opportunity_successes": 2,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 7,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 39,
+			"misses": 2,
+			"mistimed_actions": 18,
+			"opportunity_successes": 3,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 8,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 48,
+			"misses": 5,
+			"mistimed_actions": 14,
+			"opportunity_successes": 4,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 9,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 47,
+			"misses": 2,
+			"mistimed_actions": 17,
+			"opportunity_successes": 4,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 10,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 36,
+			"misses": 2,
+			"mistimed_actions": 19,
+			"opportunity_successes": 2,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 11,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 48,
+			"misses": 2,
+			"mistimed_actions": 18,
+			"opportunity_successes": 3,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 12,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 33,
+			"misses": 4,
+			"mistimed_actions": 17,
+			"opportunity_successes": 2,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 13,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 38,
+			"misses": 6,
+			"mistimed_actions": 16,
+			"opportunity_successes": 1,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 14,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 27,
+			"misses": 8,
+			"mistimed_actions": 14,
+			"opportunity_successes": 1,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 15,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 42,
+			"misses": 2,
+			"mistimed_actions": 18,
+			"opportunity_successes": 3,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 16,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 39,
+			"misses": 1,
+			"mistimed_actions": 19,
+			"opportunity_successes": 3,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 17,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 40,
+			"misses": 2,
+			"mistimed_actions": 18,
+			"opportunity_successes": 3,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 18,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		},
+		{
+			"final_fear": 39,
+			"misses": 2,
+			"mistimed_actions": 18,
+			"opportunity_successes": 3,
+			"policy": "light_only",
+			"result": "LOSE",
+			"seconds": 180.0,
+			"seed": 19,
+			"uses": {
+				"LIGHT": 23,
+				"SHADOW": 0,
+				"SOUND": 0
+			}
+		}
+	],
+	"version": "0.2"
+}

@@ -1,0 +1,215 @@
+{
+	"anti_streak": {
+		"activities": 10000,
+		"consecutive_repeats": 1341,
+		"counts": {
+			"DRINK_WATER": 3147,
+			"SLEEP": 3148,
+			"WATCH_TV": 3705
+		},
+		"max_same_activity_streak": 5,
+		"run_length_histogram": {
+			"1": 7418,
+			"2": 1147,
+			"3": 89,
+			"4": 4,
+			"5": 1
+		}
+	},
+	"base_weights": {
+		"activities": 10000,
+		"consecutive_repeats": 3301,
+		"counts": {
+			"DRINK_WATER": 3012,
+			"SLEEP": 3060,
+			"WATCH_TV": 3928
+		},
+		"max_same_activity_streak": 10,
+		"run_length_histogram": {
+			"1": 4512,
+			"10": 1,
+			"2": 1449,
+			"3": 479,
+			"4": 183,
+			"5": 52,
+			"6": 12,
+			"7": 9,
+			"8": 2
+		}
+	},
+	"human_core_fun": "NOT VERIFIED",
+	"recovery_timeline": [
+		{
+			"adaptation": {
+				"LIGHT": 60.0,
+				"SHADOW": 60.0,
+				"SOUND": 60.0
+			},
+			"event": "controlled initial adaptation 60 each",
+			"recovered_total": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"time": 0.0,
+			"wait": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			}
+		},
+		{
+			"adaptation": {
+				"LIGHT": 60.0,
+				"SHADOW": 60.0,
+				"SOUND": 60.0
+			},
+			"event": "before threshold",
+			"recovered_total": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"time": 19.999,
+			"wait": {
+				"LIGHT": 19.999,
+				"SHADOW": 19.999,
+				"SOUND": 19.999
+			}
+		},
+		{
+			"adaptation": {
+				"LIGHT": 60.0,
+				"SHADOW": 60.0,
+				"SOUND": 60.0
+			},
+			"event": "recovery starts, no instantaneous decrement",
+			"recovered_total": {
+				"LIGHT": 0.0,
+				"SHADOW": 0.0,
+				"SOUND": 0.0
+			},
+			"time": 20.0,
+			"wait": {
+				"LIGHT": 20.0,
+				"SHADOW": 20.0,
+				"SOUND": 20.0
+			}
+		},
+		{
+			"adaptation": {
+				"LIGHT": 59.0,
+				"SHADOW": 59.0,
+				"SOUND": 59.0
+			},
+			"event": "one full second recovered",
+			"recovered_total": {
+				"LIGHT": 1.0,
+				"SHADOW": 1.0,
+				"SOUND": 1.0
+			},
+			"time": 21.0,
+			"wait": {
+				"LIGHT": 21.0,
+				"SHADOW": 21.0,
+				"SOUND": 21.0
+			}
+		},
+		{
+			"adaptation": {
+				"LIGHT": 59.0,
+				"SHADOW": 59.0,
+				"SOUND": 59.0
+			},
+			"event": "LIGHT Miss leaves its wait unchanged",
+			"recovered_total": {
+				"LIGHT": 1.0,
+				"SHADOW": 1.0,
+				"SOUND": 1.0
+			},
+			"time": 21.0,
+			"wait": {
+				"LIGHT": 21.0,
+				"SHADOW": 21.0,
+				"SOUND": 21.0
+			}
+		},
+		{
+			"adaptation": {
+				"LIGHT": 59.0,
+				"SHADOW": 59.0,
+				"SOUND": 80.0
+			},
+			"event": "SOUND recognized resets SOUND only",
+			"recovered_total": {
+				"LIGHT": 1.0,
+				"SHADOW": 1.0,
+				"SOUND": 1.0
+			},
+			"time": 21.0,
+			"wait": {
+				"LIGHT": 21.0,
+				"SHADOW": 21.0,
+				"SOUND": 0.0
+			}
+		},
+		{
+			"adaptation": {
+				"LIGHT": 54.0,
+				"SHADOW": 54.0,
+				"SOUND": 80.0
+			},
+			"event": "LIGHT/SHADOW recover while SOUND rests",
+			"recovered_total": {
+				"LIGHT": 6.0,
+				"SHADOW": 6.0,
+				"SOUND": 1.0
+			},
+			"time": 26.0,
+			"wait": {
+				"LIGHT": 26.0,
+				"SHADOW": 26.0,
+				"SOUND": 5.0
+			}
+		},
+		{
+			"adaptation": {
+				"LIGHT": 54.0,
+				"SHADOW": 80.0,
+				"SOUND": 80.0
+			},
+			"event": "SHADOW recognized resets SHADOW only",
+			"recovered_total": {
+				"LIGHT": 6.0,
+				"SHADOW": 6.0,
+				"SOUND": 1.0
+			},
+			"time": 26.0,
+			"wait": {
+				"LIGHT": 26.0,
+				"SHADOW": 0.0,
+				"SOUND": 5.0
+			}
+		},
+		{
+			"adaptation": {
+				"LIGHT": 34.0,
+				"SHADOW": 80.0,
+				"SOUND": 75.0
+			},
+			"event": "independent recovery windows",
+			"recovered_total": {
+				"LIGHT": 26.0,
+				"SHADOW": 6.0,
+				"SOUND": 6.0
+			},
+			"time": 46.0,
+			"wait": {
+				"LIGHT": 46.0,
+				"SHADOW": 20.0,
+				"SOUND": 25.0
+			}
+		}
+	],
+	"seed": 903
+}
