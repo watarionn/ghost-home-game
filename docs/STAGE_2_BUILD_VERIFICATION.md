@@ -1,6 +1,6 @@
 # Stage 2 Playtest Build Verification
 
-Date: 2026-09-20
+Date: 2026-09-21
 Branch: `feature/stage2-external-playtest`
 
 ## Implemented
@@ -26,13 +26,22 @@ Acceptance:
 - Total: 848 checks, 0 failures
 
 Tester README hidden-rule audit: PASS.
-## Export probe
+## Export validation
 
-Godot recognized the `Windows Desktop` preset and reached export validation.
-The export then stopped only because the Windows export templates are absent.
+Official Godot 4.7.2 stable export templates were downloaded from the
+`godotengine/godot-builds` 4.7.2-stable release.
 
-Expected template:
-`%APPDATA%\Godot\export_templates\4.7.2.stable\windows_release_x86_64.exe`
+Archive:
+`Godot_v4.7.2-stable_export_templates.tpz`
+
+Verified before extraction:
+- size: 1,281,349,702 bytes
+- SHA-256: `f298490b8d44d934be425a5a65a51bf15f422428b229a06a6e11d9ffea248011`
+- size match: PASS
+- hash match: PASS
+
+Only the Windows x86_64 templates and `version.txt` were installed under:
+`%APPDATA%\Godot\export_templates\4.7.2.stable\`
 
 Direct export command:
 `godot --headless --path . --export-release "Windows Desktop" "build/stage2-playtest/GhostHomePlaytest.exe"`
@@ -41,19 +50,35 @@ Local helper usage:
 `set GODOT_EXE=C:\path\to\Godot_v4.7.2-stable_win64_console.exe`
 `tools\build_stage2_playtest.cmd`
 
-Current helper result: exit code 4 with an explicit missing-template blocker.
+Helper result after template installation: exit code 0.
 
-## Package target
+## Package result
 
-`build/stage2-playtest/GhostHomePlaytest.exe`
-`build/stage2-playtest/PLAYTEST_README.txt`
+Generated:
+- `build/stage2-playtest/GhostHomePlaytest.exe`
+- `build/stage2-playtest/GhostHomePlaytest.pck`
+- `build/stage2-playtest/PLAYTEST_README.txt`
 
-Godot may place additional required runtime files in the same folder.
+Package hashes:
+- EXE: `fd6e3ae8bf8bfb54c624b5bcc557e0455af5c8385a4200b1b54de9c16b53e7b0`
+- PCK: `a65f2ad2c4c5131bbcf93fc75c67af70028092de46fb3e72cf27887b06e102a4`
+- README: `b1f64d1e325d1e1930fad55043e161f421babfd1e55d14402cb6651f5334f57b`
 
-## Blocker
+The packaged README hash matches the repository source/template.
 
-An actual Windows executable was not produced or launched because the
-Godot 4.7.2 Windows export templates are not installed locally.
-They were not downloaded or installed automatically.
+## Clean-folder launch smoke test
+
+The three package files were copied to a repository-external temporary folder
+and the exported EXE was launched from there.
+
+Observed:
+- process stayed running after startup
+- `Responding=True`
+- window title: `Ghost Home — Core Prototype v0.3`
+- no TCP connections owned by the game process during the smoke check
+- the process closed cleanly via `CloseMainWindow`; force termination was not needed
+
+This confirms the package can launch without the Godot editor or repository
+files present in the launch folder.
 
 No GitHub Actions, cloud builds, external plugins, or metered CI/CD were used.
