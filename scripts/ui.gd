@@ -50,7 +50,8 @@ func setup(game: Node) -> void:
 	timer_label = make_label("", Rect2(780, 70, 250, 38), 25)
 	pause_button = make_button("一時停止", Rect2(1080, 65, 160, 52), game.toggle_pause)
 	make_label("住人を観察して、怪奇現象を仕掛けよう。", Rect2(40, 613, 750, 32), 19)
-	make_label("F1 : Debug", Rect2(1080, 613, 170, 32), 18)
+	if not OS.has_feature("stage2_playtest"):
+		make_label("F1 : Debug", Rect2(1080, 613, 170, 32), 18)
 	for i in Balance.ACTION_IDS.size():
 		var id: String = Balance.ACTION_IDS[i]
 		action_buttons[id] = make_button("", Rect2(40 + i * 406, 658, 388, 104), game.perform_action.bind(id))
