@@ -61,10 +61,20 @@ Generated:
 
 Package hashes:
 - EXE: `fd6e3ae8bf8bfb54c624b5bcc557e0455af5c8385a4200b1b54de9c16b53e7b0`
-- PCK: `a65f2ad2c4c5131bbcf93fc75c67af70028092de46fb3e72cf27887b06e102a4`
+- PCK: `e19837169064b12e59497bda859a38b557e6bf2844c9f0566344c01a6eae3401`
 - README: `b1f64d1e325d1e1930fad55043e161f421babfd1e55d14402cb6651f5334f57b`
 
 The packaged README hash matches the repository source/template.
+
+Final export scope audit:
+- preset uses selected-scene export for `res://scenes/main.tscn`
+- runtime dependencies are included automatically by Godot
+- export log contains no `res://tests/`, `res://docs/`, `res://playtest/`, or `res://tools/`
+- final PCK size: 27,400 bytes
+- no generated build artifacts or `*.import` files are tracked by Git
+
+A final PR audit also corrected a missing newline between
+`binary_format/architecture` and `codesign/enable` in the export preset.
 
 ## Clean-folder launch smoke test
 
